@@ -19,20 +19,49 @@ const myUrl =()=>{
 }
 
 
+const [isGoingOut, setIsGoingOut] = useState(true)
+const setState =()=> {
+  return (  setIsGoingOut(prev => !prev))
+}
+
+const [myLinks, setMyLinks] = useState(["Link1", "Link2"])
+const addMyLink =()=> {
+  return (setMyLinks(myLinks => {return([...myLinks, `Link${myLinks.length + 1}`])}))
+}
+
+
+
+// const buttonHandler=()=>{
+//   const newArray = `myArray ${myArray.length +1}`
+//   myArray.push(newArray)
+//   return (
+//     console.log(myArray)
+//   )
+// }
+
+
 
   return (
-    <div className="w-full  pt-20 max-h-screen ">
-      <div className="w-[50vw] md:w-[40vw] bg-purple-200 flex flex-col items-center mx-auto">
-        <div className="w-full bg-purple-800 text-white flex flex-row justify-between items-center p-3">
-          <h5>Meme Generator</h5>
-          <small>React Course </small>
+    <div>
+      <div onClick={setState} className="text-center">
+        <h1 >Do i feel like going out?</h1>
+        <button className="bg-pink-600 rounded-full p-5">{isGoingOut ? "yes" : "no"}</button>
+      </div>
+      <div className="w-full  py-20 max-h-screen ">
+        <div className="w-[50vw] md:w-[40vw] bg-purple-200 flex flex-col items-center mx-auto">
+          <div className="w-full bg-purple-800 text-white flex flex-row justify-between items-center p-3">
+            <h5>Meme Generator</h5>
+            <small>React Course </small>
+          </div>
+          <div className="flex  flex-row justify-between mx-3 ">
+            <input placeholder="top  addtext" className="w-full border-2 border-gray-500 rounded-lg m-2 px-2 placeholder:text-[12px] placeholder:font-bold" />
+            <input placeholder="bottom tom" className="w-full border-2 border-gray-500 rounded-lg m-2 px-2 placeholder:text-[12px] placeholder:font-bold" />
+          </div>
+          <button onClick={myUrl} className=" bg-purple-800 text-center text-[12px]  text-white p-1 md:p-2 px-25 md:px-38 rounded-lg cursor-pointer"> Get a new image</button>
+          <button onClick={addMyLink} className="bg-gray-600 text-white p-2 rounded-full">Get Link</button>
+          <p>{myLinks}</p>
+          <img src={memeImage} width={300} height={300} className="py-5 md:py-10 px-1 md:w-[400px]" /> 
         </div>
-        <div className="flex  flex-row justify-between mx-3 ">
-          <input placeholder="top  addtext" className="w-full border-2 border-gray-500 rounded-lg m-2 px-2 placeholder:text-[12px] placeholder:font-bold" />
-          <input placeholder="bottom tom" className="w-full border-2 border-gray-500 rounded-lg m-2 px-2 placeholder:text-[12px] placeholder:font-bold" />
-        </div>
-        <button onClick={myUrl} className=" bg-purple-800 text-center text-[12px]  text-white p-1 md:p-2 px-25 md:px-38 rounded-lg cursor-pointer"> Get a new image</button>
-        <img src={memeImage} width={300} height={300} className="py-5 md:py-10 px-1 md:w-[400px]" />
       </div>
     </div>
   )
@@ -69,14 +98,7 @@ export default MemeProject
 // }
 
 
-// const buttonHandler=()=>{
-//   const newArray = `myArray ${myArray.length +1}`
-//   myArray.push(newArray)
-//   return (
-//     console.log(myArray)
-//   )
-// }
-
+// 
 // const imgName = myArray.map((item,id) => {
 //   return(
 //     <p key={id}>{item}</p>
