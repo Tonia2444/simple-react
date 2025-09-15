@@ -7,15 +7,17 @@ const MemeProject = () => {
   // const handleClick = () => {
   //   return (window.alert())
   // }
+  const [meme, setMeme] = useState({
+    randomImage: "https://i.imgflip.com/1ur9b0.jpg",
+    topText: "",
+    bottomText: ""
+  })
 
-const [memeImage, setMemeImage] = useState("")
+const [memeImage, setMemeImage] = useState(meme.randomImage)
 const myUrl =()=>{
   const randomUrl = Math.floor(Math.random() * Meme.length)
   const newUrl = Meme[randomUrl].imgUrl
-
-  return(
-    setMemeImage(newUrl)
-  )
+    setMeme(prevMeme => ({...prevMeme, randomImage:newUrl}))
 }
 
 
@@ -24,10 +26,10 @@ const setState =()=> {
   return (  setIsGoingOut(prev => !prev))
 }
 
-const [myLinks, setMyLinks] = useState(["Link1", "Link2"])
-const addMyLink =()=> {
-  return (setMyLinks(myLinks => {return([...myLinks, `Link${myLinks.length + 1}`])}))
-}
+// const [myLinks, setMyLinks] = useState(["Link1", "Link2"])
+// const addMyLink =()=> {
+//   return (setMyLinks(myLinks => {return([...myLinks, `Link${myLinks.length + 1}`])}))
+// }
 
 
 
@@ -58,9 +60,9 @@ const addMyLink =()=> {
             <input placeholder="bottom tom" className="w-full border-2 border-gray-500 rounded-lg m-2 px-2 placeholder:text-[12px] placeholder:font-bold" />
           </div>
           <button onClick={myUrl} className=" bg-purple-800 text-center text-[12px]  text-white p-1 md:p-2 px-25 md:px-38 rounded-lg cursor-pointer"> Get a new image</button>
-          <button onClick={addMyLink} className="bg-gray-600 text-white p-2 rounded-full">Get Link</button>
-          <p>{myLinks}</p>
-          <img src={memeImage} width={300} height={300} className="py-5 md:py-10 px-1 md:w-[400px]" /> 
+          {/* <button onClick={addMyLink} className="bg-gray-600 text-white p-2 rounded-full">Get Link</button>
+          <p>{myLinks}</p> */}
+          <img src={meme.randomImage} width={300} height={300} className="py-5 md:py-10 px-1 md:w-[400px]" /> 
         </div>
       </div>
     </div>

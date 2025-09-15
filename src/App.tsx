@@ -2,9 +2,9 @@
 // import Newfoods from "./components/Newfoods";
 // import Newfilter from "./components/Newfilter";
 
-import ContactCard from "./newproject/project1/ContactCard";
+// import ContactCard from "./newproject/project1/ContactCard";
 
-// import Counter from "./newproject/project1/counter";
+import Counter from "./newproject/project1/Counter";
 
 // import JournalProject from "./newproject/project1/JournalProject";
 // import MemeProject from "./newproject/project1/MemeProject";
@@ -14,8 +14,8 @@ import ContactCard from "./newproject/project1/ContactCard";
 function App() {
   return (
     <div>
-      <ContactCard />
-      {/* <Counter /> */}
+      {/* <ContactCard /> */}
+      <Counter />
       {/* <MemeProject /> */}
       {/* <JournalProject /> */}
       {/* <React /> */}
