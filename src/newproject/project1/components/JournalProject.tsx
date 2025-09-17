@@ -1,4 +1,4 @@
-import { myJournal } from "./Journal"
+import {myJournal} from "./Journal"
 
 
 const JournalProject = () => {
